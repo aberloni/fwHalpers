@@ -4,8 +4,26 @@ using UnityEngine;
 
 namespace fwp.halpers
 {
-	static public class HalperComponentsGenerics
+	static public class HalperComponents
 	{
+		/// <summary>
+		/// will fetch components from all gameobject in scene
+		/// NOT OPTI AT ALL
+		/// </summary>
+		static public T[] filterComponents<T>()
+		{
+			var all = qh.gcs<GameObject>();
+			List<T> tmp = new List<T>();
+			for (int i = 0; i < all.Length; i++)
+			{
+				T inst = all[i].GetComponent<T>();
+				if (inst != null)
+				{
+					tmp.Add(inst);
+				}
+			}
+			return tmp.ToArray();
+		}
 
 		/// <summary>
 		/// won't include itself in the search
@@ -37,31 +55,6 @@ namespace fwp.halpers
 				}
 			}
 			return all.ToArray();
-		}
-
-		static public T[] getObjectOfType<T>()
-		{
-			GameObject[] objs = GameObject.FindObjectsOfType<GameObject>();
-			List<T> output = new List<T>();
-			//T comp = null;
-			for (int i = 0; i < objs.Length; i++)
-			{
-				//comp = objs[i].GetComponent<T>();
-				//if (comp != null) output.Add(comp);
-
-				output.AddRange(objs[i].GetComponentsInChildren<T>());
-			}
-			return output.ToArray();
-		}
-
-		static public T[] getComponents<T>() where T : Component
-		{
-			return GameObject.FindObjectsOfType<T>();
-		}
-
-		static public T getComponent<T>() where T : Component
-		{
-			return GameObject.FindObjectOfType<T>();
 		}
 
 		/// <summary>

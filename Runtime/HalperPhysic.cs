@@ -69,7 +69,7 @@ namespace fwp.halpers
         {
             step = Mathf.Abs(step); // just in case ...
 
-            Renderer render = HalperComponentsGenerics.getComponent<Renderer>(target);
+            Renderer render = HalperComponents.getComponent<Renderer>(target);
 
             float colSize = Vector3.Distance(collider.bounds.min, collider.bounds.max);
 
@@ -122,7 +122,7 @@ namespace fwp.halpers
 
         static public void growScaleInBoxCollider(Transform target, BoxCollider collider, float step)
         {
-            Renderer render = HalperComponentsGenerics.getComponent<Renderer>(target);
+            Renderer render = HalperComponents.getComponent<Renderer>(target);
 
             int safe = 100;
             while (safe > 0 && collider.bounds.Contains(render.bounds.min) && collider.bounds.Contains(render.bounds.max))

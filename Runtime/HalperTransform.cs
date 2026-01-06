@@ -7,21 +7,6 @@ namespace fwp.halpers
 
 	static public class HalperTransform
 	{
-
-		static public Transform getTransform<T>() where T : Component
-		{
-			T t = GameObject.FindObjectOfType<T>();
-			if (t != null) return t.transform;
-			return null;
-		}
-
-		static public Transform getTransform<T>(Component comp) where T : Component
-		{
-			T t = HalperComponentsGenerics.getComponent<T>(comp);
-			if (t != null) return t.transform;
-			return null;
-		}
-
 		static public string getFullTransformHierarchyPathToString(this Transform tr)
 		{
 			string path = "";
