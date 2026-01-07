@@ -28,9 +28,6 @@ namespace fwp.halpers
 		/// <summary>
 		/// won't include itself in the search
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="context"></param>
-		/// <returns></returns>
 		static public T[] getComponentsInChildren<T>(Transform context) where T : Component
 		{
 			return getComponents<T>(context, false);
@@ -60,9 +57,6 @@ namespace fwp.halpers
 		/// <summary>
 		/// on itself or in any children
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="comp"></param>
-		/// <returns></returns>
 		static public T getComponent<T>(Component comp) where T : Component
 		{
 			T t = comp.GetComponent<T>();
