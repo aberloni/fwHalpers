@@ -20,7 +20,7 @@ static public class ExtScriptable
 		}
 
 		Debug.Log("renaming scriptable : " + newName);
-		string path = AssetDatabase.GetAssetPath(candidate.GetInstanceID());
+		string path = AssetDatabase.GetAssetPath(candidate.GetEntityId());
 		AssetDatabase.RenameAsset(path, newName);
 		AssetDatabase.SaveAssets();
 	}
