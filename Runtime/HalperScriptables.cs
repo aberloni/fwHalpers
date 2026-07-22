@@ -88,7 +88,7 @@ namespace fwp.halpers
 
 				return data;
 			}
-			Debug.LogWarning("can't locate scriptable of type " + typeof(T).Name + " (filter name ? " + nameContains + ")");
+			// Debug.LogWarning("ed.scriptable: can't locate scriptable of type " + typeof(T).Name + " (filter name ? " + nameContains + ")");
 			return null;
 		}
 #endif
